@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+        }
+        .home-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        .home-container h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+        .home-container p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #555;
+        }
+        .home-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF; /* Attractive blue color */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+        .home-container button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="home-container">
+        <h2>Welcome to Our Home Page!</h2>
+        <p>We're glad you're here. Choose an option below:</p>
+        <button onclick="window.location.href='register.html'">Register</button>
+        <button onclick="window.location.href='login.html'">Login</button>
+        <button onclick="window.location.href='contact-us.html'">Contact Us</button>
+
+        <!-- Button to navigate to Admin Dashboard -->
+        <button onclick="window.location.href='admin-dashboard.html'">Go to Admin Dashboard</button>
+
+    </div>
+
+</body>
+</html>

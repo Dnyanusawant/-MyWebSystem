@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+    }
+    .navbar {
+      background-color: #007BFF;
+      color: white;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .navbar h1 {
+      margin: 0;
+      font-size: 1.5em;
+    }
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+    }
+    .sidebar {
+      width: 250px;
+      background-color: #0056b3;
+      color: white;
+      position: fixed;
+      height: 100%;
+      padding-top: 20px;
+    }
+    .sidebar a {
+      display: block;
+      padding: 15px;
+      text-decoration: none;
+      color: white;
+      transition: background 0.3s;
+    }
+    .sidebar a:hover {
+      background-color: #007BFF;
+    }
+    .main-content {
+      margin-left: 250px;
+      padding: 20px;
+    }
+    .card {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .card h2 {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+    .card p {
+      font-size: 1em;
+      color: #555;
+    }
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 10px;
+      transition: background 0.3s;
+    }
+    .button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <h1>Admin Dashboard</h1>
+    <div>
+      <a href="home.html">Home</a>
+      <a href="contact-us.html">Contact</a>
+      <a href="#" onclick="logout()">Logout</a>
+    </div>
+  </div>
+
+  <!-- Sidebar -->
+<div class="sidebar">
+  <a href="#" onclick="showInfo('admin-users')">Manage Admin Users</a>
+  <a href="#" onclick="showInfo('user-reports')">View User Reports</a>
+  <a href="#" onclick="showInfo('analytics')">Analytics</a>
+  <a href="#" onclick="showInfo('logs')">Manage Logs</a>
+  <a href="#" onclick="showInfo('todo-list')">To-Do List</a>
+  <a href="#" onclick="showInfo('notes')">Notes</a>
+  <a href="#" onclick="showInfo('important-notes')">Important Notes</a>
+
+  <!-- Link to Contact Us Page -->
+  <a href="contact-us.html" class="button">Support</a>
+  <a href="pages/contact-us.html" class="button">Support</a>
+
+</div>
+
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="card" id="admin-users">
+      <h2>Admin Users</h2>
+      <p>Manage admin accounts and permissions.</p>
+      <a href="admin-users.html" class="button">Manage Users</a>
+    </div>
+    <div class="card" id="user-reports">
+      <h2>User Reports</h2>
+      <p>Access detailed reports of user activities.</p>
+      <a href="reports.html" class="button">View Reports</a>
+    </div>
+    <div class="card" id="analytics">
+      <h2>Analytics</h2>
+      <p>Track user engagement and system performance.</p>
+      <a href="analytics-detailed.html" class="button">View Analytics</a>
+    </div>
+    <div class="card" id="logs" style="display:none;">
+      <h2>Manage Logs</h2>
+      <p>View and manage system logs for auditing purposes.</p>
+      <a href="logs.html" class="button">View Logs</a>
+    </div>
+    <div class="card" id="todo-list" style="display:none;">
+      <h2>To-Do List</h2>
+      <p>Manage your tasks and stay organized. Add, edit, or delete tasks as needed.</p>
+      <a href="todo-list.html" class="button">Manage To-Do List</a>
+    </div>
+    <div class="card" id="notes" style="display:none;">
+      <h2>Notes</h2>
+      <p>Keep track of important information or reminders. Write and organize your notes.</p>
+      <a href="notes.html" class="button">Manage Notes</a>
+    </div>
+    <div class="card" id="important-notes" style="display:none;">
+      <h2>Important Notes</h2>
+      <p>Quick access to the most important notes. Prioritize tasks and reminders here.</p>
+      <a href="important-notes.html" class="button">View Important Notes</a>
+    </div>
+  </div>
+
+  <script>
+    function logout() {
+      alert("Logged out successfully");
+      window.location.href = "login.html";
+    }
+
+    function showInfo(section) {
+      // Hide all cards
+      var cards = document.querySelectorAll('.card');
+      cards.forEach(function(card) {
+        card.style.display = 'none';
+      });
+
+      // Display the selected section and show a message
+      var selectedCard = document.getElementById(section);
+      if (selectedCard) {
+        selectedCard.style.display = 'block';
+      }
+
+      // Add a custom message for each section
+      var messages = {
+        'admin-users': 'Manage admin users and assign permissions.',
+        'user-reports': 'Access detailed reports on user activities. Currently, 120 users are active and generating reports.',
+        'analytics': 'Analyzing system performance: Overall engagement has increased by 25% in the last month.',
+        'logs': 'Manage and view system logs for auditing and error tracking.',
+        'todo-list': 'Add and manage your daily tasks to stay organized.',
+        'notes': 'Take notes and keep track of important information.',
+        'important-notes': 'Quickly access and prioritize your important notes.'
+      };
+
+      var message = messages[section];
+      if (message) {
+        alert(message); // Display the relevant message for the section
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url('https://via.placeholder.com/1920x1080'); /* Background image */
+      background-size: cover;
+      background-position: center;
+    }
+    .container {
+      width: 80%;
+      margin: auto;
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      margin-top: 50px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .section {
+      flex: 1;
+      margin: 10px;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .info-section {
+      background-color: #007BFF;
+      color: white;
+      text-align: center;
+    }
+    .form-section {
+      background-color: #f4f4f4;
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin: 15px 0 5px;
+      font-weight: bold;
+    }
+    input, textarea, select, button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .success {
+      color: green;
+      font-size: 1.2em;
+      text-align: center;
+    }
+    .nav-buttons {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .nav-buttons a {
+      text-decoration: none;
+      color: white;
+      background-color: #007BFF;
+      padding: 10px 20px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+    .nav-buttons a:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Section 1: Contact Information -->
+    <div class="section info-section">
+      <h1>Contact Us</h1>
+      <p>If you have any questions or need support, feel free to reach out to us. We will get back to you as soon as possible.</p>
+      <div>
+        <h3>Give Us a Call:</h3>
+        <p>Phone: 9033445566</p>
+        <h3>Our Address:</h3>
+        <p>Pune, Maharashtra</p>
+        <h3>Contact Us Via Email:</h3>
+        <p>Email: support@company.com</p>
+      </div>
+    </div>
+
+    <!-- Section 2: Contact Form -->
+    <div class="section form-section">
+      <h2>Leave Us a Message</h2>
+      <form id="contactForm">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" placeholder="Enter your first name" required>
+
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" placeholder="Enter your last name" required>
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" placeholder="Enter your phone number" required>
+
+        <label for="message">Your Message:</label>
+        <textarea id="message" rows="5" placeholder="Enter your message" required></textarea>
+
+        <label for="contactMethod">How would you like us to contact you?</label>
+        <select id="contactMethod" required>
+          <option value="email">Contact through Email</option>
+          <option value="call">Request a Call</option>
+        </select>
+
+        <button type="submit">Send Message</button>
+      </form>
+      <div id="thankYouMessage" style="display: none;">
+        <p class="success">Thank you for contacting us! Redirecting to the Home Page...</p>
+      </div>
+    </div>
+
+    <!-- Navigation Button -->
+    <div class="nav-buttons">
+      <a href="home.html">Back to Home</a>
+  
+
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+      document.getElementById('contactForm').style.display = 'none';
+      document.getElementById('thankYouMessage').style.display = 'block';
+      // Redirect to the Home Page after a delay
+      setTimeout(function () {
+        window.location.href = "home.html";
+      }, 3000); // 3-second delay
+    });
+  </script>
+</body>
+</html>
